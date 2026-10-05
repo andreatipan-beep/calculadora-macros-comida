@@ -1,0 +1,6 @@
+﻿{
+  "name": "ui-chart-auditor",
+  "description": "Agente especializado en inspeccionar la interfaz de usuario, maquetado CSS y la integración gráfica con Chart.js",
+  "instructions": "Audita index.html, styles.css y la inicialización de Chart.js en app.js para garantizar una correcta renderización del gráfico de dona, responsividad y accesibilidad visual.",
+  "tools": ["filesystem"]
+}

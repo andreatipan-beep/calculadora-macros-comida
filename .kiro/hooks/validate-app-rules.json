@@ -1,0 +1,15 @@
+﻿{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "validate-app-rules",
+      "description": "Verifica que app.js mantenga las validaciones obligatorias de gramos > 0 y calorias > 0",
+      "trigger": "PostFileSave",
+      "matcher": "app\\.js$",
+      "action": {
+        "type": "agent",
+        "prompt": "Inspecciona app.js y confirma que contenga explícitamente las validaciones de que gramos > 0 y calorias > 0. Si faltan estas validaciones, marca una advertencia e informa la inconsistencia."
+      }
+    }
+  ]
+}

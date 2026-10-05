@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculadora de Macros y Calorías</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="app-header">
+      <h1>🥗 Calculadora de Macros</h1>
+      <p class="subtitle">Registra tu alimentación diaria y visualiza tus macronutrientes</p>
+    </header>
+
+    <!-- Formulario de ingreso -->
+    <section class="card form-section" aria-labelledby="form-title">
+      <h2 id="form-title">Agregar Alimento</h2>
+      <form id="foodForm" novalidate>
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="nombre">Nombre del alimento</label>
+            <input
+              type="text"
+              id="nombre"
+              name="nombre"
+              placeholder="Ej: Pollo a la plancha"
+              required
+              autocomplete="off"
+            />
+          </div>
+          <div class="form-group">
+            <label for="gramos">Gramos (g)</label>
+            <input
+              type="number"
+              id="gramos"
+              name="gramos"
+              placeholder="Ej: 150"
+              min="0.1"
+              step="0.1"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="calorias">Calorías (kcal)</label>
+            <input
+              type="number"
+              id="calorias"
+              name="calorias"
+              placeholder="Ej: 248"
+              min="0.1"
+              step="0.1"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="proteinas">Proteínas (g)</label>
+            <input
+              type="number"
+              id="proteinas"
+              name="proteinas"
+              placeholder="Ej: 46"
+              min="0"
+              step="0.1"
+              value="0"
+            />
+          </div>
+          <div class="form-group">
+            <label for="carbohidratos">Carbohidratos (g)</label>
+            <input
+              type="number"
+              id="carbohidratos"
+              name="carbohidratos"
+              placeholder="Ej: 0"
+              min="0"
+              step="0.1"
+              value="0"
+            />
+          </div>
+          <div class="form-group">
+            <label for="grasas">Grasas (g)</label>
+            <input
+              type="number"
+              id="grasas"
+              name="grasas"
+              placeholder="Ej: 5.4"
+              min="0"
+              step="0.1"
+              value="0"
+            />
+          </div>
+        </div>
+
+        <div id="formError" class="error-message" role="alert" aria-live="polite" hidden></div>
+
+        <button type="submit" class="btn btn-primary">Agregar Alimento</button>
+      </form>
+    </section>
+
+    <!-- Resumen de totales -->
+    <section class="card summary-section" aria-labelledby="summary-title">
+      <h2 id="summary-title">Resumen del Día — <span id="currentDate"></span></h2>
+      <div class="totals-grid">
+        <div class="total-card total-kcal">
+          <span class="total-label">Calorías</span>
+          <span class="total-value" id="totalCalorias">0</span>
+          <span class="total-unit">kcal</span>
+        </div>
+        <div class="total-card total-prot">
+          <span class="total-label">Proteínas</span>
+          <span class="total-value" id="totalProteinas">0</span>
+          <span class="total-unit">g</span>
+        </div>
+        <div class="total-card total-carb">
+          <span class="total-label">Carbohidratos</span>
+          <span class="total-value" id="totalCarbohidratos">0</span>
+          <span class="total-unit">g</span>
+        </div>
+        <div class="total-card total-fat">
+          <span class="total-label">Grasas</span>
+          <span class="total-value" id="totalGrasas">0</span>
+          <span class="total-unit">g</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gráfico de dona -->
+    <section class="card chart-section" aria-labelledby="chart-title">
+      <h2 id="chart-title">Distribución de Macros</h2>
+      <div class="chart-wrapper">
+        <canvas id="macroChart" aria-label="Gráfico de dona con distribución de macronutrientes" role="img"></canvas>
+      </div>
+      <p id="chartEmpty" class="chart-empty-msg">Agrega alimentos para ver la distribución de macros.</p>
+    </section>
+
+    <!-- Lista de alimentos registrados -->
+    <section class="card list-section" aria-labelledby="list-title">
+      <div class="list-header">
+        <h2 id="list-title">Alimentos Registrados</h2>
+        <button class="btn btn-danger btn-sm" id="clearBtn" aria-label="Borrar todos los alimentos del día">
+          Limpiar día
+        </button>
+      </div>
+      <div id="foodList" class="food-list">
+        <p class="empty-msg" id="emptyMsg">No hay alimentos registrados hoy.</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

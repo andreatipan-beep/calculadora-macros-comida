@@ -1,0 +1,21 @@
+﻿{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "."
+      ],
+      "description": "Servidor MCP de sistema de archivos para inspección y edición del workspace por Kiro IDE."
+    },
+    "nutrition-fetch": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-fetch"
+      ],
+      "description": "Servidor MCP Fetch para consultar datos y referencias nutricionales externas durante las pruebas."
+    }
+  }
+}

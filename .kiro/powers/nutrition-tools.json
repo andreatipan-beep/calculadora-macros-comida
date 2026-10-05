@@ -1,0 +1,29 @@
+﻿{
+  "name": "nutrition-tools",
+  "version": "1.0.0",
+  "description": "Power de utilidades nutricionales y diagnóstico DOM/Canvas para la Calculadora de Macros y Calorías",
+  "tools": [
+    {
+      "name": "seed_sample_food_data",
+      "description": "Genera una lista de alimentos de prueba con sus equivalentes de macronutrientes para pruebas visuales en la SPA",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "count": {
+            "type": "number",
+            "default": 3,
+            "description": "Número de alimentos de muestra a generar"
+          }
+        }
+      }
+    },
+    {
+      "name": "verify_chart_integration",
+      "description": "Inspecciona la presencia del elemento canvas y la carga del CDN de Chart.js en la página",
+      "parameters": {
+        "type": "object",
+        "properties": {}
+      }
+    }
+  ]
+}

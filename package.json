@@ -1,0 +1,13 @@
+{
+  "name": "calculadora-macros-comida",
+  "version": "1.0.0",
+  "description": "SPA para calcular y visualizar macronutrientes diarios con Chart.js",
+  "main": "app.js",
+  "scripts": {
+    "test:pbt": "node .kiro/tests/pbt-calculator.test.js"
+  },
+  "devDependencies": {
+    "fast-check": "^3.23.1"
+  },
+  "license": "MIT"
+}

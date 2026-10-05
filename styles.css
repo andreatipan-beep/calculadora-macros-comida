@@ -1,0 +1,314 @@
+/* ============================================================
+   Calculadora de Macros — Estilos principales
+   ============================================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --color-bg: #f0f4f8;
+  --color-surface: #ffffff;
+  --color-border: #dde3eb;
+  --color-primary: #4f7ef8;
+  --color-primary-dark: #3563e9;
+  --color-danger: #e85555;
+  --color-danger-dark: #c93c3c;
+  --color-text: #1e2b3c;
+  --color-text-muted: #6b7a90;
+  --color-kcal: #f97316;
+  --color-prot: #4f7ef8;
+  --color-carb: #22c55e;
+  --color-fat: #eab308;
+  --radius: 12px;
+  --shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  --transition: 0.2s ease;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  min-height: 100vh;
+  padding: 1.5rem 1rem 3rem;
+}
+
+/* ── Layout ── */
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* ── Header ── */
+.app-header {
+  text-align: center;
+  padding: 1rem 0 0.5rem;
+}
+
+.app-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.app-header .subtitle {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  margin-top: 0.25rem;
+}
+
+/* ── Card ── */
+.card {
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--color-border);
+}
+
+.card h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+  color: var(--color-text);
+}
+
+/* ── Formulario ── */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+
+.form-group input {
+  padding: 0.55rem 0.75rem;
+  border: 1.5px solid var(--color-border);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: var(--color-text);
+  transition: border-color var(--transition), box-shadow var(--transition);
+  background: #fafcff;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(79, 126, 248, 0.15);
+}
+
+.form-group input.input-error {
+  border-color: var(--color-danger);
+}
+
+/* ── Mensajes de error ── */
+.error-message {
+  background: #fff0f0;
+  border: 1px solid #ffc5c5;
+  border-radius: 8px;
+  padding: 0.6rem 0.9rem;
+  color: var(--color-danger);
+  font-size: 0.88rem;
+  margin-bottom: 0.75rem;
+}
+
+/* ── Botones ── */
+.btn {
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 0.65rem 1.4rem;
+  transition: background-color var(--transition), transform var(--transition);
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-dark);
+}
+
+.btn-danger {
+  background-color: var(--color-danger);
+  color: #fff;
+}
+
+.btn-danger:hover {
+  background-color: var(--color-danger-dark);
+}
+
+.btn-sm {
+  padding: 0.4rem 0.9rem;
+  font-size: 0.82rem;
+}
+
+/* ── Totales ── */
+.totals-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.total-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  border-radius: 10px;
+  gap: 0.15rem;
+  background: var(--color-bg);
+}
+
+.total-label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.total-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.total-unit {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+}
+
+.total-kcal .total-value { color: var(--color-kcal); }
+.total-prot .total-value { color: var(--color-prot); }
+.total-carb .total-value { color: var(--color-carb); }
+.total-fat  .total-value { color: var(--color-fat);  }
+
+/* ── Gráfico ── */
+.chart-wrapper {
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.chart-empty-msg {
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  margin-top: 0.75rem;
+}
+
+/* ── Lista de alimentos ── */
+.list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.list-header h2 {
+  margin-bottom: 0;
+}
+
+.food-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.empty-msg {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.food-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 0.5rem 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  transition: background-color var(--transition);
+}
+
+.food-item:hover {
+  background: #e8eef7;
+}
+
+.food-item-name {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.food-item-macros {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  grid-column: 1;
+}
+
+.food-item-macros span {
+  margin-right: 0.6rem;
+}
+
+.food-item-remove {
+  grid-column: 2;
+  grid-row: 1 / 3;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-muted);
+  font-size: 1.1rem;
+  padding: 0.25rem 0.4rem;
+  border-radius: 6px;
+  transition: color var(--transition), background-color var(--transition);
+  align-self: center;
+}
+
+.food-item-remove:hover {
+  color: var(--color-danger);
+  background-color: #fff0f0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 540px) {
+  .app-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .totals-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

@@ -1,0 +1,15 @@
+﻿{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "check-html-structure",
+      "description": "Asegura la presencia del CDN de Chart.js y del elemento canvas en index.html",
+      "trigger": "PostFileSave",
+      "matcher": "index\\.html$",
+      "action": {
+        "type": "agent",
+        "prompt": "Verifica que index.html incluya el script CDN de Chart.js y la etiqueta <canvas id=\"macroChart\"> para el gráfico de dona. Si alguno falta, advierte la omisión."
+      }
+    }
+  ]
+}
